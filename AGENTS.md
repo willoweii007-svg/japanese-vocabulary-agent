@@ -1,72 +1,224 @@
+
 # AGENTS.md
 
 # Project: Japanese Vocabulary Learning AI Agent
 
-## 1. Project Overview
-Build a beginner-friendly Japanese vocabulary learning website for Traditional Chinese users.
+## 1. Project Overview（專案介紹）
 
-The website helps users learn Japanese vocabulary through flashcards, quizzes, examples, and vocabulary categories.
+建立一個以繁體中文使用者為主要對象的日文單字學習網站。
 
-## 2. Target Users
-- Traditional Chinese speaking Japanese learners.
-- JLPT N5, N4, and N3 learners.
-- Beginners who want a simple and friendly learning experience.
+網站採用可愛、療癒、溫馨的設計風格，透過互動式單字卡，幫助使用者學習日文單字、記憶平假名讀音、理解中文意思及學習日文例句。
 
-## 3. Main Features
-1. Vocabulary Cards: Display Japanese words, hiragana, Chinese meanings, and example sentences.
-2. Vocabulary Quiz: Let users select the correct Chinese meaning.
-3. JLPT Categories: Organize vocabulary into N5, N4, and N3 levels.
-4. Learning Progress: Track correct answers and total questions.
-5. Review: Allow users to review vocabulary they have learned.
+網站提供 JLPT N5～N1 五個級別的內建單字資料庫，讓使用者能依照自己的日文程度選擇學習內容。
 
-## 4. Design Guidelines
-- Use Traditional Chinese for the interface.
-- Use a clean, cute, and friendly visual style.
-- Use soft pastel colors.
-- Make the website responsive for mobile phones and computers.
-- Keep buttons and navigation easy to understand.
-- Use readable fonts and clear spacing.
+## 2. Target Users（目標使用者）
 
-## 5. Technical Guidelines
-- Use HTML, CSS, and JavaScript.
-- Keep the project simple and suitable for beginners.
-- Avoid unnecessary frameworks and paid services.
-- The website must work with GitHub Pages.
-- Do not expose API keys or passwords in frontend code.
-- Store basic learning progress using browser localStorage.
+- 以繁體中文為主要語言的日文學習者。
+- 正在準備 JLPT N5～N1 的學習者。
+- 希望透過單字卡增加日文詞彙量的使用者。
+- 喜歡簡單、可愛、療癒風格學習介面的使用者。
 
-## 6. Project Structure
-- index.html: Main website page.
-- style.css: Website styles.
-- script.js: Website interactions and learning functions.
-- data/vocabulary.js: Japanese vocabulary data.
-- AGENTS.md: Project instructions.
+## 3. Main Features（主要功能）
 
-## 7. Development Rules
-- Read this AGENTS.md before making changes.
-- Follow the existing project structure.
-- Keep code readable and organized.
-- Use meaningful variable and function names.
-- Test all buttons and learning functions.
-- Check mobile and desktop layouts.
-- Do not remove existing features without permission.
-- Explain major changes in Traditional Chinese.
+### 3.1 Vocabulary Flashcards（互動式單字卡）
 
-## 8. Vocabulary Data Format
-Each vocabulary item should include:
-- word: Japanese vocabulary.
-- reading: Hiragana reading.
-- meaning: Traditional Chinese meaning.
-- level: JLPT level.
-- example: Japanese example sentence.
-- translation: Traditional Chinese translation.
+每張單字卡需要包含：
 
-## 9. Development Workflow
-1. Check the existing files.
-2. Plan the changes before implementation.
-3. Build one feature at a time.
-4. Test the feature after implementation.
-5. Check the complete website before publishing.
+- word：日文單字。
+- reading：平假名讀音。
+- meaning：繁體中文意思。
+- example：日文例句。
+- translation：例句中文翻譯。
+- level：JLPT 等級。
 
-## 10. Final Goal
-Create a functional Japanese vocabulary learning website that is easy to use, visually friendly, and publicly accessible through GitHub Pages.
+單字卡互動方式：
+
+- 正面只顯示日文單字，讓使用者先回想意思。
+- 點擊單字卡後翻面。
+- 背面顯示平假名、中文意思、日文例句、例句翻譯及 JLPT 等級。
+- 提供上一張與下一張按鈕。
+- 顯示目前單字位置，例如 3 / 20。
+
+### 3.2 JLPT Level Selection（等級分類）
+
+提供五個學習級別：
+
+- N5
+- N4
+- N3
+- N2
+- N1
+
+使用者可以自行選擇想學習的 JLPT 等級。
+
+### 3.3 Random Vocabulary（隨機抽取）
+
+- 提供隨機抽取單字功能。
+- 從使用者選擇的 JLPT 等級中隨機選出單字。
+- 避免每次都按照固定順序學習。
+
+### 3.4 Built-in Vocabulary Database（內建單字資料庫）
+
+- 使用網站內建的日文單字資料。
+- 初期不使用外部 AI API。
+- 不需要額外付費的資料庫服務。
+- 單字依照 JLPT N5～N1 分類。
+- 單字資料必須包含正確的日文、讀音、中文意思及例句。
+
+### 3.5 Learning Progress（學習進度）
+
+- 可以將單字標記為已學會。
+- 記錄已學會的單字。
+- 統計每日學習單字數量。
+- 顯示學習紀錄及學習統計。
+- 使用瀏覽器 localStorage 保存學習進度。
+- 重新開啟網站後仍能讀取先前保存的紀錄。
+
+### 3.6 Search Vocabulary（單字搜尋）
+
+- 提供單字搜尋欄位。
+- 可以輸入日文單字或中文意思搜尋。
+- 顯示符合搜尋條件的單字。
+- 可以從搜尋結果進入單字卡學習。
+
+### 3.7 Favorite Vocabulary（收藏單字）
+
+- 使用者可以收藏喜歡或想加強記憶的單字。
+- 可以查看收藏的單字。
+- 可以取消收藏。
+- 收藏紀錄使用 localStorage 保存。
+
+## 4. Website Pages（網站頁面）
+
+網站主要分成三個頁面：
+
+### 4.1 Home Page（首頁）
+
+首頁需要包含：
+
+- 網站名稱及簡介。
+- 可愛療癒風格插畫。
+- 溫馨歡迎文字。
+- 今日學習目標。
+- 今日學習數量統計。
+- 學習進度概況。
+- 開始學習按鈕。
+- 前往學習紀錄的入口。
+
+### 4.2 Vocabulary Page（單字卡頁面）
+
+包含：
+
+- JLPT N5～N1 等級選擇。
+- 隨機抽取單字功能。
+- 單字搜尋功能。
+- 收藏單字功能。
+- 互動式單字卡。
+- 上一張及下一張按鈕。
+- 已學會標記功能。
+- 目前學習進度顯示。
+
+### 4.3 Learning Records Page（學習紀錄頁面）
+
+包含：
+
+- 已學會的單字總數。
+- 每日學習單字數量。
+- 學習紀錄統計。
+- 已收藏的單字。
+- 不同 JLPT 等級的學習概況。
+
+## 5. Design Guidelines（設計規範）
+
+- 使用柔和的粉色、奶油色、淡紫色等柔和色系。
+- 使用可愛、溫馨的插畫或裝飾。
+- 介面保持簡潔，不要過度複雜。
+- 單字卡需要有清楚的正反面區分。
+- 按鈕使用容易理解的文字及圖示。
+- 使用繁體中文作為主要介面語言。
+- 使用清楚、容易閱讀的字體。
+- 保持適當的留白與間距。
+- 支援手機、平板及電腦等不同裝置。
+- 確保使用者可以輕鬆操作所有功能。
+
+## 6. Technical Guidelines（技術規範）
+
+- 使用 HTML 建立網頁結構。
+- 使用 CSS 設計網站外觀。
+- 使用 JavaScript 實作互動功能。
+- 使用 localStorage 儲存學習紀錄及收藏資料。
+- 不依賴需要付費的 API 或外部服務。
+- 不將 API Key 或密碼寫入前端程式碼。
+- 網站必須能夠部署於 GitHub Pages。
+- 程式碼需要簡單、清楚且容易維護。
+- 避免使用不必要的複雜框架。
+
+## 7. Project Structure（專案檔案架構）
+
+預計使用以下檔案架構：
+
+- index.html：網站主要頁面。
+- style.css：網站樣式與視覺設計。
+- script.js：網站互動功能。
+- data/vocabulary.js：日文單字資料庫。
+- AGENTS.md：AI Agent 專案開發規範。
+- README.md：專案說明文件。
+
+## 8. Vocabulary Data Format（單字資料格式）
+
+每筆單字資料必須包含：
+
+- word：日文單字。
+- reading：平假名讀音。
+- meaning：繁體中文意思。
+- example：日文例句。
+- translation：例句中文翻譯。
+- level：JLPT 等級。
+
+資料範例：
+
+javascript
+{
+  word: "勉強",
+  reading: "べんきょう",
+  meaning: "學習、用功",
+  example: "毎日日本語を勉強しています。",
+  translation: "我每天都在學習日文。",
+  level: "N5"
+}
+
+## 9. Development Rules（開發規範）
+
+1. 開始開發前，先閱讀 AGENTS.md。
+2. 開發過程必須遵守本文件的專案規範。
+3. 先完成網站基本架構，再逐步增加功能。
+4. 一次完成一項功能，完成後進行測試。
+5. 不可以擅自刪除已經完成的功能。
+6. 確保單字資料正確且完整。
+7. 確保所有按鈕都能正常運作。
+8. 測試手機及電腦版的顯示效果。
+9. 修改程式碼時，使用容易理解的命名方式。
+10. 每次完成重要修改後，以繁體中文說明修改內容。
+
+## 10. Out of Scope（暫不開發的功能）
+
+第一版網站暫時不包含：
+
+- 單字選擇測驗。
+- 中文提示猜日文測驗。
+- AI 即時生成單字。
+- 會員註冊及登入。
+- 雲端同步學習紀錄。
+- 付費訂閱功能。
+
+優先完成核心單字學習功能，避免第一版專案過度複雜。
+
+## 11. Final Goal（最終目標）
+
+建立一個可公開使用的日文單字學習網站。
+
+使用者能夠透過 JLPT N5～N1 分級單字資料庫、互動式單字卡、隨機抽取、搜尋、收藏及學習紀錄等功能，有系統地學習日文單字。
+
+網站需要具備完整的操作功能、良好的使用體驗，以及可愛療癒的視覺風格。
+
+最終透過 GitHub Pages 公開部署，讓其他使用者也能使用這個日文學習網站。
