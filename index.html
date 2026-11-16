@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日語小花園｜日文單字學習</title>
+    <meta name="description" content="用可愛療癒的方式學習日文單字，從 JLPT N5 到 N1 一起進步！">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>🌸 日語小花園</h1>
+        <nav>
+            <button onclick="showPage('home')">首頁</button>
+            <button onclick="showPage('vocabulary')">單字學習</button>
+            <button onclick="showPage('records')">學習紀錄</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- 首頁 -->
+        <section id="home" class="page">
+            <div class="welcome">
+                <h2>歡迎來到日語小花園！🐰</h2>
+                <p>每天學一點日文，讓自己慢慢變得更厲害。</p>
+                <p>今天也一起加油吧！🌷</p>
+
+                <div class="stats">
+                    <p>今日學習單字</p>
+                    <h3 id="todayCount">0 個</h3>
+                </div>
+
+                <div class="goal">
+                    <label for="dailyGoal">今日學習目標</label>
+                    <input type="number" id="dailyGoal" min="1" value="10">
+                </div>
+
+                <button class="primary-btn" onclick="showPage('vocabulary')">
+                    開始學習 ♡
+                </button>
+            </div>
+        </section>
+
+        <!-- 單字學習 -->
+        <section id="vocabulary" class="page hidden">
+            <h2>📖 今日單字學習</h2>
+
+            <label for="levelSelect">選擇 JLPT 等級</label>
+            <select id="levelSelect">
+                <option value="N5">N5</option>
+                <option value="N4">N4</option>
+                <option value="N3">N3</option>
+                <option value="N2">N2</option>
+                <option value="N1">N1</option>
+            </select>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="搜尋日文或中文意思..."
+            >
+            <button onclick="searchVocabulary()">搜尋</button>
+            <button onclick="randomVocabulary()">🎲 隨機抽取</button>
+
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div id="cardContent">
+                    <h2>準備開始學習吧！</h2>
+                    <p>點擊卡片翻面查看答案 ♡</p>
+                </div>
+            </div>
+
+            <p id="cardProgress">0 / 0</p>
+
+            <div class="card-buttons">
+                <button onclick="previousCard()">上一張</button>
+                <button onclick="nextCard()">下一張</button>
+            </div>
+
+            <div class="card-buttons">
+                <button onclick="markAsLearned()">✓ 已經學會</button>
+                <button onclick="toggleFavorite()">♡ 收藏單字</button>
+            </div>
+        </section>
+
+        <!-- 學習紀錄 -->
+        <section id="records" class="page hidden">
+            <h2>🌱 我的學習紀錄</h2>
+
+            <div class="record-card">
+                <p>已學會的單字</p>
+                <h3 id="learnedCount">0 個</h3>
+            </div>
+
+            <div class="record-card">
+                <p>今日學習數量</p>
+                <h3 id="recordTodayCount">0 個</h3>
+            </div>
+
+            <div class="record-card">
+                <p>收藏的單字</p>
+                <h3 id="favoriteCount">0 個</h3>
+            </div>
+
+            <h3>♡ 收藏清單</h3>
+            <div id="favoriteList">
+                尚未收藏任何單字。
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>🌷 日語小花園｜每天進步一點點 ♡</p>
+    </footer>
+
+    <script src="data/vocabulary.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
